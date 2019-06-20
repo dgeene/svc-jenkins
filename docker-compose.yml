@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  jenkins:
+    build:
+      context: .
+      dockerfile: Dockerfile
+
+    image: svc-jenkins
+
+    ports:
+      - "8080:8080"
+      - "50000:50000" # port for executor nodes
+
+    volumes:
+     - ./jenkins_home:/var/jenkins_home
